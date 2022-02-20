@@ -10,10 +10,16 @@ local scene = composer.newScene()
 function scene:create( event )
 	local sceneGroup = self.view
 	
-	local TEXT = display.newText("CLEAR",display.contentWidth*0.5,display.contentHeight*0.5)
-	TEXT:setFillColor(1)
-	TEXT.size = 200
+	local ending = display.newText(" ",display.contentCenterX,display.contentCenterY)
+	ending.size=250
 
+	local result = composer.getVariable("complete")
+
+	if result then
+		ending.text="CLEAR"
+	else
+		ending.text="FAIL"
+	end
 end 
 
 function scene:hide( event )
